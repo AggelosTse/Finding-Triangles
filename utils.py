@@ -9,9 +9,9 @@ def listmaker():
 
 def checkiftriangle():
     sum = 0
-    for i in range(99):         ##exei problima o deiktis
-        for j in range(99):
-            for k in range(99):
+    for i in range(100):         ##exei problima o deiktis
+        for j in range(i+1,100):
+            for k in range(j+1,100):
                 if(i==j or i== k or j == k):
                     continue
                 a = getdistance(x[i], y[i], x[j], y[j])
