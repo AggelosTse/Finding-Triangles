@@ -12,7 +12,7 @@ Generating 100 random points on the Cartesian plane and finding all possible tri
    ```bash
    git clone https://github.com/AggelosTse/Finding-Triangles.git
 
-2. Use this command:
+2. Use these commands:
 
     ```bash
    python3 utils.py
