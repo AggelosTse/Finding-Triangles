@@ -10,5 +10,5 @@ Generating 100 random points on the Cartesian plane and finding all possible tri
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/AGgelosTse/Python_Project_1.git
+   git clone https://github.com/AggelosTse/Finding-Triangles.git
    
