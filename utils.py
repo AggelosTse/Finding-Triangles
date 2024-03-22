@@ -3,26 +3,28 @@ from math import sqrt
 
 
 def listmaker():
-    for i in range(100):                #adds random values from -100 to 100 in the 2 lists.
-        x.append(randint(-100, 100))        
+    for i in range(100):  # adds random values from -100 to 100 in the 2 lists.
+        x.append(randint(-100, 100))
         y.append(randint(-100, 100))
 
 
 def checkiftriangle():
     count = 0
-    for i in range(100):            #takes every possible 3 points combinations of these lists.
+    for i in range(100):  # takes every possible 3 points combinations of these lists.
         for j in range(i + 1, 100):
             for k in range(j + 1, 100):
                 if i == j or i == k or j == k:
                     continue
-                a = getdistance(x[i], y[i], x[j], y[j])     #calculates the distances between them.
+                a = getdistance(
+                    x[i], y[i], x[j], y[j]
+                )  # calculates the distances between them.
                 b = getdistance(x[i], y[i], x[k], y[k])
                 c = getdistance(x[j], y[j], x[k], y[k])
 
                 s = (a + b + c) / 2
                 area_squared = s * (s - a) * (s - b) * (s - c)
 
-                if area_squared < 0:        
+                if area_squared < 0:
                     continue
 
                 A = area_squared**0.5
@@ -32,25 +34,27 @@ def checkiftriangle():
     return count
 
 
-def getdistance(firstx, firsty, secondx, secondy):  #function that returns the distance between 2 points.
+def getdistance(
+    firstx, firsty, secondx, secondy
+):  # function that returns the distance between 2 points.
     distance = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
     return distance
 
 
-def findmean(li):      #finds mean value from the random list.
+def findmean(li):  # finds mean value from the random list.
     sum = 0
     for i in li:
         sum += i
     return sum / len(li)
 
 
-def findmedian(li):   #finds median value from the random list.
+def findmedian(li):  # finds median value from the random list.
     l = li.sort()
     x = len(li) // 2
     return li[x]
 
 
-def findrange(li):      #finds range value from the random list.
+def findrange(li):  # finds range value from the random list.
     l = li.sort()
     x = len(li)
     if li[0] > li[x - 1]:
@@ -59,7 +63,7 @@ def findrange(li):      #finds range value from the random list.
         return li[x - 1] - li[0]
 
 
-def findstdev(li):      #finds standard deviation from the random list.
+def findstdev(li):  # finds standard deviation from the random list.
     mean_value = findmean(li)
     sum_squared_diff = sum((i - mean_value) ** 2 for i in li)
     mean_value2 = sum_squared_diff / len(li)
@@ -70,8 +74,8 @@ def findstdev(li):      #finds standard deviation from the random list.
 
 x = []
 y = []
-listmaker() #creates 2 lists,for the x and y values.
-possible_triangles = checkiftriangle()   #returns the number of triangles that can be created from all 3 possible combinations.
+listmaker()  # creates 2 lists,for the x and y values.
+possible_triangles = checkiftriangle()  # returns the number of triangles that can be created from all 3 possible combinations.
 print(str(possible_triangles) + " Possible triangles can be made.")
 
 
