@@ -9,7 +9,7 @@ def listmaker():
 
 
 def checkiftriangle():
-    sum = 0
+    count = 0
     for i in range(100):            #takes every possible 3 points combinations of these lists.
         for j in range(i + 1, 100):
             for k in range(j + 1, 100):
@@ -27,30 +27,30 @@ def checkiftriangle():
 
                 A = area_squared**0.5
                 if A > 0:
-                    sum += 1
+                    count = count + 1
 
-    return sum
+    return count
 
 
 def getdistance(firstx, firsty, secondx, secondy):  #function that returns the distance between 2 points.
-    dist = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
-    return dist
+    distance = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
+    return distance
 
 
-def mesos(li):      #finds mean value from the random list.
+def findmean(li):      #finds mean value from the random list.
     sum = 0
     for i in li:
         sum += i
     return sum / len(li)
 
 
-def diamesos(li):   #finds median value from the random list.
+def findmedian(li):   #finds median value from the random list.
     l = li.sort()
     x = len(li) // 2
     return li[x]
 
 
-def evros(li):      #finds range value from the random list.
+def findrange(li):      #finds range value from the random list.
     l = li.sort()
     x = len(li)
     if li[0] > li[x - 1]:
@@ -59,11 +59,11 @@ def evros(li):      #finds range value from the random list.
         return li[x - 1] - li[0]
 
 
-def apoklisi(li):      #finds standard deviation from the random list.
-    mesos_value = mesos(li)
-    sum_squared_diff = sum((i - mesos_value) ** 2 for i in li)
-    mesos2 = sum_squared_diff / len(li)
-    standard_deviation = sqrt(mesos2)
+def findstdev(li):      #finds standard deviation from the random list.
+    mean_value = findmean(li)
+    sum_squared_diff = sum((i - mean_value) ** 2 for i in li)
+    mean_value2 = sum_squared_diff / len(li)
+    standard_deviation = sqrt(mean_value2)
 
     return standard_deviation
 
@@ -71,13 +71,13 @@ def apoklisi(li):      #finds standard deviation from the random list.
 x = []
 y = []
 listmaker() #creates 2 lists,for the x and y values.
-p = checkiftriangle()   #returns the number of triangles that can be created from all 3 possible combinations.
-print("Mporoun na ftiaxtoun: " + str(p) + " Trigona")
+possible_triangles = checkiftriangle()   #returns the number of triangles that can be created from all 3 possible combinations.
+print(str(possible_triangles) + " Possible triangles can be made.")
 
 
 list1 = [6, 5, 4.3, 6, 8, 7, 6, 4, 9, 7, 66, 77, 88, 222, 11, 33, 44, 5, 3, 33, 44, 555]
 
-print("O mesos einai: " + str(mesos(list1)))
-print("H diamesos einai: " + str(diamesos(list1)))
-print("To evros einai: " + str(evros(list1)))
-print("H apoklisi einai: " + str(apoklisi(list1)))
+print("Mean value is: " + str(findmean(list1)))
+print("Median value is: " + str(findmedian(list1)))
+print("Range value is: " + str(findrange(list1)))
+print("Standard deviation is: " + str(findstdev(list1)))

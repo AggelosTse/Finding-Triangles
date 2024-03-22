@@ -2,7 +2,7 @@ from math import sqrt
 from statistics import mean, median, stdev
 
 def checkiftriangle():
-    sum = 0
+    count = 0
     for i in range(100):  ##takes every possible 3 points combinations of these lists.
         for j in range(i + 1, 100):
             for k in range(j + 1, 100):
@@ -20,17 +20,17 @@ def checkiftriangle():
 
                 A = area_squared**0.5
                 if A > 0:
-                    sum = sum + 1
-                    embadon.append(A)
-    return sum
+                    count = count + 1
+                    area.append(A)
+    return count
 
 
 def getdistance(firstx, firsty, secondx, secondy):  ##function that returns the distance between 2 points.
-    dist = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
-    return dist
+    distance = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
+    return distance
 
 
-embadon = []
+area = []
 points = "/home/angelo/Downloads/points.txt"
 
 x = []
@@ -45,13 +45,13 @@ with open(points, "r") as file:     #opens the txt file.
         y.append(int(columns[1]))   #adds the second column of the file in a y list.
 
 
-p = checkiftriangle()
+possible_triangles = checkiftriangle()
 
-mea = mean(embadon)
-med = median(embadon)
-deviation = stdev(embadon)
+mea = mean(area)
+med = median(area)
+deviation = stdev(area)
 
-print(p, mea, med, deviation)
+print(possible_triangles, mea, med, deviation)
 
 
 
