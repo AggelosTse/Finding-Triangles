@@ -3,12 +3,12 @@ from statistics import mean, median, stdev
 
 def checkiftriangle():
     sum = 0
-    for i in range(100):  
+    for i in range(100):  ##takes every possible 3 points combinations of these lists.
         for j in range(i + 1, 100):
             for k in range(j + 1, 100):
                 if i == j or i == k or j == k:
                     continue
-                a = getdistance(x[i], y[i], x[j], y[j])
+                a = getdistance(x[i], y[i], x[j], y[j])     ##calculates the distances between them.
                 b = getdistance(x[i], y[i], x[k], y[k])
                 c = getdistance(x[j], y[j], x[k], y[k])
 
@@ -25,7 +25,7 @@ def checkiftriangle():
     return sum
 
 
-def getdistance(firstx, firsty, secondx, secondy):
+def getdistance(firstx, firsty, secondx, secondy):  ##function that returns the distance between 2 points.
     dist = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
     return dist
 
@@ -37,14 +37,12 @@ x = []
 y = []
 
 
-with open(points, "r") as file:
+with open(points, "r") as file:     #opens the txt file.
     for line in file:
-        # Split the line into two columns based on a delimiter (e.g., space or tab)
-        columns = line.split()
+        columns = line.split()  # Splits the line into two columns.
 
-        # Assuming two columns, convert each column to a float and append to the respective lists
-        x.append(int(columns[0]))
-        y.append(int(columns[1]))
+        x.append(int(columns[0]))   #adds the first column of the file in a x list.
+        y.append(int(columns[1]))   #adds the second column of the file in a y list.
 
 
 p = checkiftriangle()
