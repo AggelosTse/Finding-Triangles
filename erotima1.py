@@ -31,6 +31,7 @@ def getdistance(firstx, firsty, secondx, secondy):  ##function that returns the 
     return distance
 
 
+
 area = []
 points = "/home/angelo/Downloads/points.txt"
 

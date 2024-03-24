@@ -30,27 +30,23 @@ def checkiftriangle():
                 A = area_squared**0.5
                 if A > 0:
                     count = count + 1
+                    arealist.append(A)
 
     return count
 
 
-def getdistance(
-    firstx, firsty, secondx, secondy
-):  # function that returns the distance between 2 points.
+def getdistance(firstx, firsty, secondx, secondy):  # function that returns the distance between 2 points.
     distance = sqrt((secondx - firstx) ** 2 + (secondy - firsty) ** 2)
     return distance
 
 
 def findmean(li):  # finds mean value from the random list.
-    sum = 0
-    for i in li:
-        sum += i
-    return sum / len(li)
+    return sum(li) / len(li)
 
 
 def findmedian(li):  # finds median value from the random list.
     l = li.sort()
-    x = len(li) // 2
+    x = len(li) // 2    #takes the middle element of the list.
     return li[x]
 
 
@@ -74,14 +70,15 @@ def findstdev(li):  # finds standard deviation from the random list.
 
 x = []
 y = []
+arealist = []       #list with all the triangle arias.
+
+
 listmaker()  # creates 2 lists,for the x and y values.
 possible_triangles = checkiftriangle()  # returns the number of triangles that can be created from all 3 possible combinations.
 print(str(possible_triangles) + " Possible triangles can be made.")
 
 
-list1 = [6, 5, 4.3, 6, 8, 7, 6, 4, 9, 7, 66, 77, 88, 222, 11, 33, 44, 5, 3, 33, 44, 555]
-
-print("Mean value is: " + str(findmean(list1)))
-print("Median value is: " + str(findmedian(list1)))
-print("Range value is: " + str(findrange(list1)))
-print("Standard deviation is: " + str(findstdev(list1)))
+print("Mean value is: " + str(findmean(arealist)))
+print("Median value is: " + str(findmedian(arealist)))
+print("Range value is: " + str(findrange(arealist)))
+print("Standard deviation is: " + str(findstdev(arealist)))
