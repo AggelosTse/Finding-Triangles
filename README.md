@@ -17,4 +17,4 @@ Generating 100 random points on the Cartesian plane and finding all possible tri
     ```bash
    python3 utils.py
    python3 erotima1.py
-   python3 erotima2.py
+   python3 erotima2.py 

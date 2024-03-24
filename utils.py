@@ -15,9 +15,7 @@ def checkiftriangle():
             for k in range(j + 1, 100):
                 if i == j or i == k or j == k:
                     continue
-                a = getdistance(
-                    x[i], y[i], x[j], y[j]
-                )  # calculates the distances between them.
+                a = getdistance(x[i], y[i], x[j], y[j])  # calculates the distances between them.
                 b = getdistance(x[i], y[i], x[k], y[k])
                 c = getdistance(x[j], y[j], x[k], y[k])
 
@@ -46,7 +44,7 @@ def findmean(li):  # finds mean value from the random list.
 
 def findmedian(li):  # finds median value from the random list.
     l = li.sort()
-    x = len(li) // 2    #takes the middle element of the list.
+    x = len(li) // 2  # takes the middle element of the list.
     return li[x]
 
 
@@ -70,7 +68,7 @@ def findstdev(li):  # finds standard deviation from the random list.
 
 x = []
 y = []
-arealist = []       #list with all the triangle arias.
+arealist = []  # list with all the triangle arias.
 
 
 listmaker()  # creates 2 lists,for the x and y values.
